@@ -146,8 +146,9 @@ Untuk pertanyaan, dukungan, atau kerjasama, silakan hubungi owner:
 
 ## 📜 Lisensi
 
-© 2025 YoruStream by Rheex. All rights reserved.
+© 2025 YoruStream by Rheex-XYZ. All rights reserved.
 
 ---
 
 **Dibuat dengan ❤️ oleh Rheex-XYZ**
+

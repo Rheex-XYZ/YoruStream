@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      href="https://public-frontend-cos.metadl.com/mgx/img/favicon.png"
+      type="image/png"
+    />
+    <title>YoruStream - Platform Streaming Terbaik</title>
+
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="themes.css" />
+    <link rel="stylesheet" href="responsive.css" />
+
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <!-- HLS.js for TV streaming -->
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+  </head>
+  <body data-theme="dark">
+    <!-- Loading Screen -->
+    <div id="loadingScreen" class="loading-screen">
+      <div class="loading-content">
+        <div class="loading-logo">
+          <i class="fas fa-play-circle"></i>
+          <h2>YoruStream</h2>
+        </div>
+        <div class="loading-spinner"></div>
+        <p>Memuat platform streaming terbaik...</p>
+      </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+      <div class="nav-container">
+        <div class="nav-logo">
+          <i class="fas fa-play-circle"></i>
+          <span>YoruStream</span>
+        </div>
+
+        <div class="nav-menu" id="navMenu">
+          <a href="#home" class="nav-link active" data-tab="homeTab">
+            <i class="fas fa-home"></i>
+            <span>Home</span>
+          </a>
+          <a href="#anime" class="nav-link" data-tab="animeTab">
+            <i class="fas fa-dragon"></i>
+            <span>Anime</span>
+          </a>
+          <a href="#donghua" class="nav-link" data-tab="donghuaTab">
+            <i class="fas fa-yin-yang"></i>
+            <span>Donghua</span>
+          </a>
+          <a href="#manga" class="nav-link" data-tab="mangaTab">
+            <i class="fas fa-book-open"></i>
+            <span>Manga</span>
+          </a>
+          <a href="#film" class="nav-link" data-tab="filmTab">
+            <i class="fas fa-film"></i>
+            <span>Film</span>
+          </a>
+          <a href="#tv" class="nav-link" data-tab="tvTab">
+            <i class="fas fa-tv"></i>
+            <span>TV</span>
+          </a>
+          <a href="#info" class="nav-link" data-tab="infoTab">
+            <i class="fas fa-info-circle"></i>
+            <span>Info</span>
+          </a>
+        </div>
+
+        <div class="nav-actions">
+          <button class="settings-btn" id="settingsBtn">
+            <i class="fas fa-cog"></i>
+          </button>
+          <button class="owner-btn" id="ownerBtn">
+            <i class="fas fa-crown"></i>
+          </button>
+          <button class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <!-- Home Tab -->
+      <section id="homeTab" class="tab-content active">
+        <div class="hero-section">
+          <div class="hero-content">
+            <h1 class="hero-title">
+              <span class="welcome-text">Selamat Datang di</span>
+              <span class="brand-name">YoruStream</span>
+            </h1>
+            <p class="hero-description">
+              Platform streaming terbaik untuk Anime, Donghua, Manga, Film, dan
+              TV tanpa iklan dengan kualitas HD
+            </p>
+            <div class="hero-buttons">
+              <button class="btn btn-primary" data-tab="animeTab">
+                <i class="fas fa-play"></i>
+                Mulai Streaming
+              </button>
+              <button class="btn btn-secondary" data-tab="infoTab">
+                <i class="fas fa-info-circle"></i>
+                Pelajari Lebih Lanjut
+              </button>
+            </div>
+          </div>
+
+        <div class="features-section">
+          <div class="container">
+            <h2 class="section-title">Fitur Unggulan</h2>
+            <div class="features-grid">
+              <div class="feature-card">
+                <div class="feature-icon">
+                  <i class="fas fa-ad"></i>
+                </div>
+                <h3>Tanpa Iklan</h3>
+                <p>Nikmati streaming tanpa gangguan iklan yang mengganggu</p>
+              </div>
+              <div class="feature-card">
+                <div class="feature-icon">
+                  <i class="fas fa-mobile-alt"></i>
+                </div>
+                <h3>Multi Device</h3>
+                <p>Akses dari smartphone, tablet, atau desktop</p>
+              </div>
+              <div class="feature-card">
+                <div class="feature-icon">
+                  <i class="fas fa-palette"></i>
+                </div>
+                <h3>Multi Tema</h3>
+                <p>Pilih tema sesuai preferensi Anda</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Anime Tab -->
+      <section id="animeTab" class="tab-content">
+        <div class="container">
+          <div class="section-header">
+            <h2 id="section-title-text">Anime Terbaru</h2>
+            <div class="search-container">
+              <input
+                type="text"
+                id="search-input"
+                placeholder="Cari anime..."
+              />
+              <button id="search-btn" class="search-btn">
+                <i class="fas fa-search"></i>
+              </button>
+            </div>
+          </div>
+
+          <div class="view-toggle">
+            <button class="toggle-btn active" id="view-anime">
+              <i class="fas fa-list"></i>
+              Anime
+            </button>
+            <button class="toggle-btn" id="view-batch">
+              <i class="fas fa-archive"></i>
+              Batch
+            </button>
+          </div>
+
+          <div id="loading" class="loading">Memuat data anime...</div>
+          <div id="anime-list" class="content-grid"></div>
+          <div id="batch-list" class="content-grid" style="display: none"></div>
+          <div id="pagination" class="pagination"></div>
+        </div>
+      </section>
+
+      <!-- Donghua Tab -->
+      <section id="donghuaTab" class="tab-content">
+        <div class="container">
+          <div class="section-header">
+            <h2 id="section-title-text">Donghua Ongoing</h2>
+            <div class="search-container">
+              <input
+                type="text"
+                id="donghua-search-input"
+                placeholder="Cari donghua..."
+              />
+              <button id="donghua-search-btn" class="search-btn">
+                <i class="fas fa-search"></i>
+              </button>
+            </div>
+          </div>
+
+          <div class="view-toggle">
+            <button class="toggle-btn active" id="view-ongoing">
+              <i class="fas fa-play"></i>
+              Ongoing
+            </button>
+            <button class="toggle-btn" id="view-completed">
+              <i class="fas fa-check"></i>
+              Completed
+            </button>
+          </div>
+
+          <div id="donghua-loading" class="loading">Memuat data donghua...</div>
+          <div id="donghua-list" class="content-grid"></div>
+          <div id="donghua-pagination" class="pagination"></div>
+        </div>
+      </section>
+
+      <!-- Manga Tab -->
+      <section id="mangaTab" class="tab-content">
+        <div class="container">
+          <div class="section-header">
+            <h2 id="section-title-text">Komik Terbaru</h2>
+            <div class="search-container">
+              <input
+                type="text"
+                id="manga-search-input"
+                placeholder="Cari manga..."
+              />
+              <button id="manga-search-btn" class="search-btn">
+                <i class="fas fa-search"></i>
+              </button>
+            </div>
+          </div>
+
+          <div class="view-toggle">
+            <button class="toggle-btn active" id="view-latest">
+              <i class="fas fa-clock"></i>
+              Terbaru
+            </button>
+            <button class="toggle-btn" id="view-popular">
+              <i class="fas fa-fire"></i>
+              Populer
+            </button>
+            <button class="toggle-btn" id="view-top">
+              <i class="fas fa-star"></i>
+              Top
+            </button>
+            <button class="toggle-btn" id="view-recomen">
+              <i class="fas fa-thumbs-up"></i>
+              Rekomendasi
+            </button>
+            <button class="toggle-btn" id="view-colored">
+              <i class="fas fa-palette"></i>
+              Berwarna
+            </button>
+          </div>
+
+          <div class="filter-section">
+            <select id="type-filter" class="filter-select">
+              <option value="">Semua Tipe</option>
+              <option value="manga">Manga</option>
+              <option value="manhwa">Manhwa</option>
+              <option value="manhua">Manhua</option>
+            </select>
+          </div>
+
+          <div id="manga-loading" class="loading">Memuat data manga...</div>
+          <div id="manga-list" class="content-grid"></div>
+          <div id="manga-pagination" class="pagination"></div>
+        </div>
+      </section>
+
+      <!-- Film Tab -->
+      <section id="filmTab" class="tab-content">
+        <div class="container">
+          <div class="section-header">
+            <h2>Film Terbaru</h2>
+            <div class="search-container">
+              <input
+                type="text"
+                id="film-search-input"
+                placeholder="Cari film..."
+              />
+              <button id="film-search-btn" class="search-btn">
+                <i class="fas fa-search"></i>
+              </button>
+            </div>
+          </div>
+
+          <div id="film-loading" class="loading">Memuat data film...</div>
+          <div id="film-list" class="content-grid"></div>
+        </div>
+      </section>
+
+      <!-- TV Tab -->
+      <section id="tvTab" class="tab-content">
+        <div class="container">
+          <div class="section-header">
+            <h2>Channel TV Indonesia</h2>
+            <div class="search-container">
+              <input
+                type="text"
+                id="tv-search-input"
+                placeholder="Cari channel..."
+              />
+              <button id="tv-search-btn" class="search-btn">
+                <i class="fas fa-search"></i>
+              </button>
+            </div>
+          </div>
+
+          <div id="tv-loading" class="loading">Memuat channel TV...</div>
+          <div id="tv-list" class="content-grid"></div>
+        </div>
+      </section>
+
+      <!-- Info Tab -->
+      <section id="infoTab" class="tab-content">
+        <div class="container">
+          <div class="info-content">
+            <div class="info-header">
+              <h2>Tentang YoruStream</h2>
+              <p>Platform streaming terbaik untuk hiburan Anda</p>
+            </div>
+
+            <div class="info-grid">
+              <div class="info-card">
+                <h3>Tentang Website</h3>
+                <p>
+                  YoruStream adalah platform streaming gratis yang menyediakan
+                  konten Anime, Donghua, Manga, Film, dan TV berkualitas tinggi
+                  tanpa iklan yang mengganggu.
+                </p>
+              </div>
+
+              <div class="info-card">
+                <h3>Fitur Utama</h3>
+                <ul>
+                  <li>Streaming tanpa iklan</li>
+                  <li>Kualitas video HD</li>
+                  <li>Multiple tema</li>
+                  <li>Responsive design</li>
+                  <li>Update konten terbaru</li>
+                </ul>
+              </div>
+
+              <div class="info-card">
+                <h3>Hubungi Owner</h3>
+                <div class="social-links">
+                  <a
+                    href="https://www.instagram.com/_rheex_/"
+                    target="_blank"
+                    class="social-link instagram"
+                  >
+                    <i class="fab fa-instagram"></i>
+                    <span>Instagram</span>
+                  </a>
+                  <a
+                    href="https://web.facebook.com/RheexV2?locale=id_ID"
+                    target="_blank"
+                    class="social-link facebook"
+                  >
+                    <i class="fab fa-facebook"></i>
+                    <span>Facebook</span>
+                  </a>
+                  <a
+                    href="https://www.tiktok.com/@ryuukurogane"
+                    target="_blank"
+                    class="social-link tiktok"
+                  >
+                    <i class="fab fa-tiktok"></i>
+                    <span>TikTok</span>
+                  </a>
+                  <a
+                    href="https://www.youtube.com/@Rheex-XYZ"
+                    target="_blank"
+                    class="social-link youtube"
+                  >
+                    <i class="fab fa-youtube"></i>
+                    <span>YouTube</span>
+                  </a>
+                </div>
+              </div>
+
+              <div class="info-card">
+                <h3>Disclaimer</h3>
+                <p>
+                  Semua konten yang tersedia di website ini bersumber dari
+                  internet dan hanya untuk tujuan hiburan. Kami tidak menyimpan
+                  file video/gambar di server kami.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Settings Modal -->
+    <div id="settingsModal" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3>Pengaturan</h3>
+          <button class="close-btn" id="closeSettings">
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="setting-group">
+            <label>Pilih Tema</label>
+            <div class="theme-selector">
+              <button class="theme-btn active" data-theme="dark">
+                <div class="theme-preview dark-preview"></div>
+                <span>Dark</span>
+              </button>
+              <button class="theme-btn" data-theme="light">
+                <div class="theme-preview light-preview"></div>
+                <span>Light</span>
+              </button>
+              <button class="theme-btn" data-theme="neon">
+                <div class="theme-preview neon-preview"></div>
+                <span>Neon</span>
+              </button>
+              <button class="theme-btn" data-theme="purple">
+                <div class="theme-preview purple-preview"></div>
+                <span>Purple</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Owner Login Modal -->
+    <div id="ownerModal" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3>Owner Access</h3>
+          <button class="close-btn" id="closeOwner">
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="login-form">
+            <input
+              type="password"
+              id="ownerPassword"
+              placeholder="Masukkan password owner"
+            />
+            <button id="ownerLogin" class="btn btn-primary">
+              <i class="fas fa-sign-in-alt"></i>
+              Login
+            </button>
+          </div>
+          <div id="ownerPanel" class="owner-panel" style="display: none">
+            <h4>Panel Owner</h4>
+            <div class="owner-actions">
+              <button class="btn btn-secondary" id="clearCache">
+                <i class="fas fa-trash"></i>
+                Clear Cache
+              </button>
+              <button class="btn btn-secondary" id="resetSettings">
+                <i class="fas fa-undo"></i>
+                Reset Settings
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Content Popups -->
+    <div id="animePopup" class="popup-overlay">
+      <div class="popup-content">
+        <button id="closePopup" class="close-btn">
+          <i class="fas fa-times"></i>
+        </button>
+        <div id="popupContent"></div>
+      </div>
+    </div>
+
+    <div id="donghuaPopup" class="popup-overlay">
+      <div class="popup-content">
+        <button id="closeDonghuaPopup" class="close-btn">
+          <i class="fas fa-times"></i>
+        </button>
+        <div id="donghuaPopupContent"></div>
+      </div>
+    </div>
+
+    <div id="mangaPopup" class="popup-overlay">
+      <div class="popup-content">
+        <button id="closeMangaPopup" class="close-btn">
+          <i class="fas fa-times"></i>
+        </button>
+        <div id="mangaPopupContent"></div>
+      </div>
+    </div>
+
+    <div id="filmPopup" class="popup-overlay">
+      <div class="popup-content">
+        <button id="closeFilmPopup" class="close-btn">
+          <i class="fas fa-times"></i>
+        </button>
+        <div id="filmPopupContent"></div>
+      </div>
+    </div>
+
+    <div id="tvPlayerModal" class="popup-overlay">
+      <div class="popup-content">
+        <button id="closeTvModal" class="close-btn">
+          <i class="fas fa-times"></i>
+        </button>
+        <div class="tv-player-container">
+          <h3 id="tvPlayerTitle" class="player-title">TV Player</h3>
+          <div id="tvPlayerFrame" class="player-frame"></div>
+          <p id="channelInfo" class="player-info">Memuat channel...</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- JavaScript Files -->
+    <script src="script.js"></script>
+    <script src="themes.js"></script>
+    <script src="anime.js"></script>
+    <script src="donghua.js"></script>
+    <script src="manga.js"></script>
+    <script src="film.js"></script>
+    <script src="tv.js"></script>
+  </body>
+</html>

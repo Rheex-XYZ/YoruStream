@@ -1,0 +1,852 @@
+/* YoruStream - Responsive Design */
+
+/* FIX: Pastikan tombol selalu di tengah untuk semua ukuran layar */
+.hero-buttons {
+  justify-content: center;
+}
+
+/* Large Desktop (1400px and up) */
+@media (min-width: 1400px) {
+  .container {
+    max-width: 1400px;
+  }
+
+  .content-grid {
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  }
+
+  .hero-title {
+    font-size: 4.5rem;
+  }
+
+  .features-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* Desktop (1200px to 1399px) */
+@media (max-width: 1399px) {
+  .container {
+    max-width: 1200px;
+  }
+
+  .nav-container {
+    padding: 0 var(--spacing-md);
+  }
+}
+
+/* Tablet Landscape (992px to 1199px) */
+@media (max-width: 1199px) {
+  .container {
+    max-width: 960px;
+  }
+
+  .hero-section {
+    flex-direction: column;
+    text-align: center;
+    gap: var(--spacing-2xl);
+  }
+
+  .hero-content {
+    max-width: 100%;
+  }
+
+  .hero-visual {
+    order: -1;
+  }
+
+  .floating-cards {
+    width: 250px;
+    height: 250px;
+  }
+
+  .floating-card {
+    width: 60px;
+    height: 60px;
+  }
+
+  .floating-card i {
+    font-size: 1.2rem;
+  }
+
+  .floating-card span {
+    font-size: 0.7rem;
+  }
+
+  .popup-anime {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .popup-anime img {
+    width: 250px;
+    height: 350px;
+  }
+
+  .content-grid {
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  }
+}
+
+/* Tablet Portrait (768px to 991px) */
+@media (max-width: 991px) {
+  .container {
+    max-width: 720px;
+    padding: 0 var(--spacing-md);
+  }
+
+  .nav-container {
+    padding: 0 var(--spacing-md);
+  }
+
+  .nav-menu {
+    position: fixed;
+    top: 70px;
+    left: -100%;
+    width: 100%;
+    height: calc(100vh - 70px);
+    background: var(--background-secondary);
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    padding: var(--spacing-lg);
+    gap: var(--spacing-md);
+    transition: left var(--transition-normal);
+    border-top: 1px solid var(--border-color);
+    z-index: var(--z-dropdown);
+  }
+
+  .nav-menu.active {
+    left: 0;
+  }
+
+  .nav-link {
+    padding: var(--spacing-md);
+    border-radius: var(--radius-lg);
+    font-size: 1.1rem;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  .section-header {
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--spacing-md);
+  }
+
+  .search-container {
+    max-width: 100%;
+  }
+
+  .hero-buttons {
+    justify-content: center;
+  }
+
+  .features-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .info-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .content-grid {
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: var(--spacing-md);
+  }
+
+  .card img {
+    height: 240px;
+  }
+
+  .popup-content {
+    width: 95%;
+    margin: 20px auto;
+  }
+
+  .popup-anime img {
+    width: 200px;
+    height: 280px;
+  }
+
+  .manga-reader-header {
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--spacing-md);
+  }
+
+  .manga-reader-controls {
+    justify-content: center;
+  }
+
+  .episode-navigation {
+    flex-direction: column;
+    gap: var(--spacing-md);
+  }
+
+  .episode-navigation button {
+    width: 100%;
+  }
+}
+
+/* Mobile Landscape (576px to 767px) */
+@media (max-width: 767px) {
+  .container {
+    max-width: 540px;
+    padding: 0 var(--spacing-sm);
+  }
+
+  .nav-container {
+    padding: 0 var(--spacing-sm);
+    height: 60px;
+  }
+
+  .main-content {
+    margin-top: 60px;
+  }
+
+  .nav-menu {
+    top: 60px;
+    height: calc(100vh - 60px);
+  }
+
+  .nav-logo {
+    font-size: 1.3rem;
+  }
+
+  .nav-logo i {
+    font-size: 1.5rem;
+  }
+
+  .tab-content {
+    padding: var(--spacing-lg) 0;
+  }
+
+  .hero-section {
+    min-height: 60vh;
+    padding: var(--spacing-lg) 0;
+  }
+
+  .hero-title {
+    font-size: 2.5rem;
+  }
+
+  .welcome-text {
+    font-size: 1.2rem;
+  }
+
+  .hero-description {
+    font-size: 1rem;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-md);
+  }
+
+  .btn {
+    width: 100%;
+    max-width: 300px;
+    justify-content: center;
+  }
+
+  .floating-cards {
+    width: 200px;
+    height: 200px;
+  }
+
+  .floating-card {
+    width: 50px;
+    height: 50px;
+  }
+
+  .floating-card i {
+    font-size: 1rem;
+  }
+
+  .floating-card span {
+    font-size: 0.6rem;
+  }
+
+  .features-section {
+    padding: var(--spacing-lg) 0;
+  }
+
+  .section-title {
+    font-size: 2rem;
+  }
+
+  .features-grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+  }
+
+  .content-grid {
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: var(--spacing-sm);
+  }
+
+  .card img {
+    height: 200px;
+  }
+
+  .card-content {
+    padding: var(--spacing-sm);
+  }
+
+  .card-content h3 {
+    font-size: 0.9rem;
+  }
+
+  .card-content p {
+    font-size: 0.8rem;
+  }
+
+  .view-toggle {
+    flex-wrap: wrap;
+    gap: var(--spacing-xs);
+  }
+
+  .toggle-btn {
+    flex: 1;
+    min-width: 120px;
+    justify-content: center;
+    font-size: 0.8rem;
+    padding: var(--spacing-xs) var(--spacing-sm);
+  }
+
+  .pagination {
+    gap: var(--spacing-sm);
+  }
+
+  .pagination button {
+    padding: var(--spacing-xs) var(--spacing-sm);
+    font-size: 0.9rem;
+  }
+
+  .modal-content {
+    width: 95%;
+    max-height: 90vh;
+  }
+
+  .modal-header {
+    padding: var(--spacing-md);
+  }
+
+  .modal-body {
+    padding: var(--spacing-md);
+  }
+
+  .theme-selector {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .popup-content {
+    width: 98%;
+    margin: 10px auto;
+  }
+
+  .popup-anime {
+    padding: var(--spacing-md);
+  }
+
+  .popup-anime img {
+    width: 150px;
+    height: 220px;
+  }
+
+  .popup-info h2 {
+    font-size: 1.4rem;
+  }
+
+  .popup-buttons {
+    flex-direction: column;
+    gap: var(--spacing-sm);
+  }
+
+  .stream-btn,
+  .download-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .episode-buttons,
+  .chapter-buttons {
+    max-height: 200px;
+  }
+
+  .episode-btn,
+  .chapter-btn {
+    font-size: 0.8rem;
+    padding: var(--spacing-xs);
+  }
+
+  .manga-reader-container {
+    padding: var(--spacing-sm);
+  }
+
+  .manga-reader-settings {
+    gap: var(--spacing-xs);
+  }
+
+  .setting-btn {
+    font-size: 0.8rem;
+    padding: var(--spacing-xs);
+  }
+
+  .social-links {
+    grid-template-columns: 1fr;
+  }
+
+  .info-header h2 {
+    font-size: 2rem;
+  }
+
+  .info-header p {
+    font-size: 1rem;
+  }
+}
+
+/* Mobile Portrait (up to 575px) */
+@media (max-width: 575px) {
+  .container {
+    padding: 0 var(--spacing-xs);
+  }
+
+  .nav-container {
+    padding: 0 var(--spacing-xs);
+  }
+
+  .nav-logo {
+    font-size: 1.1rem;
+  }
+
+  /* FIX: Tampilkan logo text di mobile */
+  .nav-logo span {
+    display: inline; /* Diubah dari 'none' menjadi 'inline' */
+    font-size: 0.9rem; /* Menyesuaikan ukuran font agar muat */
+  }
+
+  .hero-title {
+    font-size: 2rem;
+  }
+
+  .welcome-text {
+    font-size: 1rem;
+  }
+
+  .hero-description {
+    font-size: 0.9rem;
+  }
+
+  .section-title {
+    font-size: 1.8rem;
+  }
+
+  .content-grid {
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  }
+
+  .card img {
+    height: 180px;
+  }
+
+  .toggle-btn {
+    min-width: 100px;
+    font-size: 0.7rem;
+  }
+
+  .toggle-btn span {
+    display: none;
+  }
+
+  .search-container {
+    flex-direction: column;
+    gap: var(--spacing-xs);
+  }
+
+  .search-container input {
+    width: 100%;
+  }
+
+  .search-btn {
+    width: 100%;
+  }
+
+  .theme-selector {
+    grid-template-columns: 1fr;
+  }
+
+  .popup-anime {
+    padding: var(--spacing-sm);
+  }
+
+  .popup-anime img {
+    width: 120px;
+    height: 180px;
+  }
+
+  .popup-info h2 {
+    font-size: 1.2rem;
+  }
+
+  .genre-list span {
+    font-size: 0.7rem;
+  }
+
+  .episode-buttons,
+  .chapter-buttons {
+    max-height: 150px;
+  }
+
+  .download-buttons {
+    flex-direction: column;
+  }
+
+  .download-link {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .manga-reader-settings {
+    flex-wrap: wrap;
+  }
+
+  .setting-btn {
+    flex: 1;
+    min-width: 60px;
+  }
+
+  .info-header h2 {
+    font-size: 1.8rem;
+  }
+
+  .feature-card {
+    padding: var(--spacing-md);
+  }
+
+  .feature-icon {
+    width: 50px;
+    height: 50px;
+  }
+
+  .feature-icon i {
+    font-size: 1.2rem;
+  }
+}
+
+/* Extra Small Mobile (up to 375px) */
+@media (max-width: 375px) {
+  .hero-title {
+    font-size: 1.8rem;
+  }
+
+  .section-title {
+    font-size: 1.5rem;
+  }
+
+  .content-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .card img {
+    height: 160px;
+  }
+
+  .popup-anime img {
+    width: 100px;
+    height: 150px;
+  }
+
+  .popup-info h2 {
+    font-size: 1.1rem;
+  }
+
+  .modal-content {
+    width: 100%;
+    margin: 0;
+    border-radius: 0;
+    max-height: 100vh;
+  }
+
+  .popup-content {
+    width: 100%;
+    margin: 0;
+    border-radius: 0;
+  }
+
+  .floating-cards {
+    display: none;
+  }
+
+  .hero-visual {
+    display: none;
+  }
+}
+
+/* Landscape Orientation */
+@media (orientation: landscape) and (max-height: 500px) {
+  .hero-section {
+    min-height: 100vh;
+  }
+
+  .nav-menu {
+    flex-direction: row;
+    flex-wrap: wrap;
+    height: auto;
+    max-height: calc(100vh - 60px);
+    overflow-y: auto;
+  }
+
+  .nav-link {
+    flex: 1;
+    min-width: 120px;
+  }
+}
+
+/* High DPI Displays */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .card img {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+  }
+
+  .popup-anime img {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+  }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .loading-spinner {
+    animation: none;
+  }
+
+  .floating-card {
+    animation: none;
+  }
+
+  .brand-name {
+    animation: none;
+  }
+}
+
+/* Print Styles */
+@media print {
+  .navbar,
+  .hamburger,
+  .nav-actions,
+  .popup-overlay,
+  .modal,
+  .loading-screen {
+    display: none !important;
+  }
+
+  .main-content {
+    margin-top: 0;
+  }
+
+  .tab-content {
+    display: block !important;
+  }
+
+  body {
+    background: white !important;
+    color: black !important;
+  }
+
+  .card {
+    break-inside: avoid;
+  }
+}
+
+/* Focus Visible (Accessibility) */
+@media (prefers-reduced-motion: no-preference) {
+  .nav-link:focus-visible,
+  .btn:focus-visible,
+  .toggle-btn:focus-visible,
+  .search-btn:focus-visible {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+  }
+}
+
+/* Dark Mode Preference */
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color-scheme: light;
+  }
+}
+
+/* Hover Support */
+@media (hover: hover) {
+  .card:hover {
+    transform: translateY(-10px) scale(1.02);
+  }
+
+  .btn:hover {
+    transform: translateY(-2px);
+  }
+
+  .nav-link:hover::before {
+    left: 100%;
+  }
+}
+
+@media (hover: none) {
+  .card:hover {
+    transform: none;
+  }
+
+  .btn:hover {
+    transform: none;
+  }
+
+  .nav-link::before {
+    display: none;
+  }
+}
+
+/* Container Queries (Future-proofing) */
+@supports (container-type: inline-size) {
+  .content-grid {
+    container-type: inline-size;
+  }
+
+  @container (max-width: 600px) {
+    .card {
+      font-size: 0.9rem;
+    }
+  }
+
+  @container (max-width: 400px) {
+    .card {
+      font-size: 0.8rem;
+    }
+  }
+}
+
+/* Flexible Grid System */
+.grid-1 {
+  grid-template-columns: 1fr;
+}
+.grid-2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+.grid-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+.grid-4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+.grid-5 {
+  grid-template-columns: repeat(5, 1fr);
+}
+.grid-6 {
+  grid-template-columns: repeat(6, 1fr);
+}
+
+@media (max-width: 991px) {
+  .grid-6,
+  .grid-5,
+  .grid-4 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 767px) {
+  .grid-6,
+  .grid-5,
+  .grid-4,
+  .grid-3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 575px) {
+  .grid-6,
+  .grid-5,
+  .grid-4,
+  .grid-3,
+  .grid-2 {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Utility Classes for Responsive Design */
+.d-sm-none {
+  display: none !important;
+}
+.d-md-none {
+  display: none !important;
+}
+.d-lg-none {
+  display: none !important;
+}
+.d-xl-none {
+  display: none !important;
+}
+
+@media (min-width: 576px) {
+  .d-sm-block {
+    display: block !important;
+  }
+  .d-sm-flex {
+    display: flex !important;
+  }
+  .d-sm-none {
+    display: none !important;
+  }
+}
+
+@media (min-width: 768px) {
+  .d-md-block {
+    display: block !important;
+  }
+  .d-md-flex {
+    display: flex !important;
+  }
+  .d-md-none {
+    display: none !important;
+  }
+}
+
+@media (min-width: 992px) {
+  .d-lg-block {
+    display: block !important;
+  }
+  .d-lg-flex {
+    display: flex !important;
+  }
+  .d-lg-none {
+    display: none !important;
+  }
+}
+
+@media (min-width: 1200px) {
+  .d-xl-block {
+    display: block !important;
+  }
+  .d-xl-flex {
+    display: flex !important;
+  }
+  .d-xl-none {
+    display: none !important;
+  }
+}
